@@ -32,7 +32,7 @@ if __name__ == "__main__":
 #VIGENERE
 vigenere_cipher = VigenereCipher()
 
-@app.route('/vigenere/encrypt', methods=['POST'])
+@app.route('/api/vigenere/encrypt', methods=['POST'])
 def vigenere_encrypt():
     data = request.get_json()
     plaintext = data['plaintext']
@@ -40,7 +40,7 @@ def vigenere_encrypt():
     encrypted_text = vigenere_cipher.encrypt(plaintext, key)
     return jsonify({'encrypted_text': encrypted_text})
 
-@app.route('/vigenere/decrypt', methods=['POST'])
+@app.route('/api/vigenere/decrypt', methods=['POST'])
 def vigenere_decrypt():
     data = request.get_json()
     cipher_text = data['cipher_text']
@@ -51,7 +51,7 @@ def vigenere_decrypt():
 #RAILFENCE
 railfence_cipher = RailFenceCipher()
 
-@app.route('/railfence/encrypt', methods=['POST'])
+@app.route('/api/railfence/encrypt', methods=['POST'])
 def encrypt():
     data = request.get_json()
     plaintext = data['plaintext']
@@ -59,7 +59,7 @@ def encrypt():
     encrypted_text = railfence_cipher.rail_fence_encrypt(plaintext, key)
     return jsonify({'encrypted_text': encrypted_text})
 
-@app.route('/railfence/decrypt', methods=['POST'])
+@app.route('/api/railfence/decrypt', methods=['POST'])
 def decrypt():
     data = request.get_json()
     cipher_text = data['cipher_text']
@@ -98,7 +98,7 @@ def playfair_decrypt():
 #TRANSPOSITION
 transposition_cipher = TranpositionCipher()
 
-@app.route('/transposition/encrypt', methods=['POST'])
+@app.route('/api/transposition/encrypt', methods=['POST'])
 def tranposition_encrypt():
     data = request.get_json()
     plaintext = data['plaintext']
@@ -106,7 +106,7 @@ def tranposition_encrypt():
     encrypted_text = transposition_cipher.encrypt(plaintext, key)
     return jsonify({'encrypted_text': encrypted_text})
 
-@app.route('/transposition/decrypt', methods=['POST'])
+@app.route('/api/transposition/decrypt', methods=['POST'])
 def tranposition_decrypt():
     data = request.get_json()
     cipher_text = data['cipher_text']
