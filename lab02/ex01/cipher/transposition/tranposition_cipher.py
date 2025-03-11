@@ -13,9 +13,9 @@ class TranpositionCipher:
     
     def decrypt(self, text, key):
         decrypted_text = [''] * key
-        row, col = 0
+        row, col = 0,0
         for symbol in text:
-            decrypted_text[col]
+            decrypted_text[col]+=symbol
             col += 1
             if col == key or (col == key - 1 and row >= len(text) % key):
                 col = 0
